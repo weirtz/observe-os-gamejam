@@ -13,6 +13,7 @@ public class Main : Spatial
 
     public override void _Ready()
     {
+        OS.SetWindowMaximized(true);
         Input.SetMouseMode(Input.MouseMode.Captured);
         viewport = GetNode("Viewport") as Viewport;
         cursor = GetNode("Viewport/DesktopControl/CursorControl") as CursorControl;
