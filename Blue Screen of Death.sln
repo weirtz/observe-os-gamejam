@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blue Screen of Death", "Blue Screen of Death.csproj", "{CF461CDD-67FF-4E04-A95A-3B00C2BDE061}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	Release|Any CPU = Release|Any CPU
+	Tools|Any CPU = Tools|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF461CDD-67FF-4E04-A95A-3B00C2BDE061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF461CDD-67FF-4E04-A95A-3B00C2BDE061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF461CDD-67FF-4E04-A95A-3B00C2BDE061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF461CDD-67FF-4E04-A95A-3B00C2BDE061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF461CDD-67FF-4E04-A95A-3B00C2BDE061}.Tools|Any CPU.ActiveCfg = Tools|Any CPU
+		{CF461CDD-67FF-4E04-A95A-3B00C2BDE061}.Tools|Any CPU.Build.0 = Tools|Any CPU
+	EndGlobalSection
+EndGlobal
