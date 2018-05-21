@@ -1,18 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/desktop/wallpaper.png" type="Texture" id=1]
 [ext_resource path="res://Assets/gui/desktop/taskbar.png" type="Texture" id=2]
-[ext_resource path="res://WindowBasicContainer.cs" type="Script" id=3]
-[ext_resource path="res://Assets/gui/window/window.png" type="Texture" id=4]
-[ext_resource path="res://Assets/gui/window/button-min.png" type="Texture" id=5]
-[ext_resource path="res://Assets/gui/window/button-hover.png" type="Texture" id=6]
-[ext_resource path="res://Assets/gui/window/button-max.png" type="Texture" id=7]
-[ext_resource path="res://Assets/gui/window/button-close.png" type="Texture" id=8]
-[ext_resource path="res://Assets/gui/window/button-hover-close.png" type="Texture" id=9]
-[ext_resource path="res://CursorControl.cs" type="Script" id=10]
-[ext_resource path="res://Assets/gui/mouse/cursor.png" type="Texture" id=11]
+[ext_resource path="res://WindowBasicContainer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CursorControl.cs" type="Script" id=4]
+[ext_resource path="res://Assets/gui/mouse/cursor.png" type="Texture" id=5]
 
-[node name="DesktopControl" type="Control"]
+[node name="DesktopControl" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -40,363 +34,30 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="WindowBasicContainer" type="MarginContainer" parent="." index="2"]
+[node name="WindowLayer" type="Control" parent="." index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 500.0
-margin_top = 100.0
-margin_right = 2975.0
-margin_bottom = 1704.0
-rect_scale = Vector2( 0.25, 0.25 )
+margin_right = 40.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 3 )
-_sections_unfolded = [ "Mouse", "Rect", "Theme" ]
 
-[node name="NinePatchRect" type="NinePatchRect" parent="WindowBasicContainer" index="0"]
+[node name="WindowBasicContainer" parent="." index="3" instance=ExtResource( 3 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 8.0
-margin_right = 2475.0
-margin_bottom = 1604.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 4 )
-patch_margin_left = 650
-patch_margin_top = 600
-patch_margin_right = 400
-patch_margin_bottom = 200
-_sections_unfolded = [ "Axis Stretch", "Mouse", "Patch Margin", "Rect" ]
+margin_left = 1049.0
+margin_top = 214.0
+margin_right = 3773.0
+margin_bottom = 3038.0
+_sections_unfolded = [ "Mouse", "Rect", "Theme", "Visibility" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WindowBasicContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 8.0
-margin_right = 2475.0
-margin_bottom = 1604.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_constants/separation = 0
-alignment = 0
-_sections_unfolded = [ "Margin", "Mouse", "custom_constants" ]
-
-[node name="MarginContainer" type="MarginContainer" parent="WindowBasicContainer/VBoxContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 2467.0
-margin_bottom = 270.0
-rect_min_size = Vector2( 0, 250 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_constants/margin_right = 0
-custom_constants/margin_top = 0
-custom_constants/margin_left = 0
-custom_constants/margin_bottom = 0
-_sections_unfolded = [ "Mouse" ]
-
-[node name="GrabberContainer" type="MarginContainer" parent="WindowBasicContainer/VBoxContainer/MarginContainer" index="0"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 2467.0
-margin_bottom = 270.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_constants/margin_right = 820
-custom_constants/margin_top = 0
-custom_constants/margin_left = 0
-custom_constants/margin_bottom = 0
-_sections_unfolded = [ "Mouse" ]
-
-[node name="GrabberControl" type="Control" parent="WindowBasicContainer/VBoxContainer/MarginContainer/GrabberContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1647.0
-margin_bottom = 270.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Mouse", "Rect", "Visibility" ]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="WindowBasicContainer/VBoxContainer/MarginContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 2467.0
-margin_bottom = 270.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 2
-_sections_unfolded = [ "Mouse" ]
-
-[node name="MinButtonContainer" type="MarginContainer" parent="WindowBasicContainer/VBoxContainer/MarginContainer/HBoxContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 1649.0
-margin_right = 1919.0
-margin_bottom = 270.0
-rect_min_size = Vector2( 200, 200 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_constants/margin_right = 70
-custom_constants/margin_top = 70
-custom_constants/margin_left = 70
-custom_constants/margin_bottom = 70
-_sections_unfolded = [ "Mouse", "Rect", "custom_constants" ]
-
-[node name="TextureRect" type="TextureRect" parent="WindowBasicContainer/VBoxContainer/MarginContainer/HBoxContainer/MinButtonContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 70.0
-margin_top = 70.0
-margin_right = 200.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 130, 130 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 4
-_sections_unfolded = [ "Mouse" ]
-
-[node name="TextureButton" type="TextureButton" parent="WindowBasicContainer/VBoxContainer/MarginContainer/HBoxContainer/MinButtonContainer/TextureRect" index="0"]
-
-show_behind_parent = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 130.0
-margin_bottom = 130.0
-rect_min_size = Vector2( 130, 130 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 6 )
-texture_disabled = ExtResource( 5 )
-expand = true
-stretch_mode = 3
-_sections_unfolded = [ "Mouse", "Rect", "Textures", "Visibility" ]
-
-[node name="MaxButtonContainer" type="MarginContainer" parent="WindowBasicContainer/VBoxContainer/MarginContainer/HBoxContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 1923.0
-margin_right = 2193.0
-margin_bottom = 270.0
-rect_min_size = Vector2( 200, 200 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_constants/margin_right = 70
-custom_constants/margin_top = 70
-custom_constants/margin_left = 70
-custom_constants/margin_bottom = 70
-_sections_unfolded = [ "Mouse", "Rect", "custom_constants" ]
-
-[node name="TextureRect" type="TextureRect" parent="WindowBasicContainer/VBoxContainer/MarginContainer/HBoxContainer/MaxButtonContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 70.0
-margin_top = 70.0
-margin_right = 200.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 130, 130 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 7 )
-expand = true
-stretch_mode = 4
-_sections_unfolded = [ "Mouse" ]
-
-[node name="TextureButton" type="TextureButton" parent="WindowBasicContainer/VBoxContainer/MarginContainer/HBoxContainer/MaxButtonContainer/TextureRect" index="0"]
-
-show_behind_parent = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 130.0
-margin_bottom = 130.0
-rect_min_size = Vector2( 130, 130 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 6 )
-texture_disabled = ExtResource( 7 )
-expand = true
-stretch_mode = 3
-_sections_unfolded = [ "Mouse", "Rect", "Textures", "Visibility" ]
-
-[node name="CloseButtonContainer" type="MarginContainer" parent="WindowBasicContainer/VBoxContainer/MarginContainer/HBoxContainer" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 2197.0
-margin_right = 2467.0
-margin_bottom = 270.0
-rect_min_size = Vector2( 200, 200 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_constants/margin_right = 70
-custom_constants/margin_top = 70
-custom_constants/margin_left = 70
-custom_constants/margin_bottom = 70
-_sections_unfolded = [ "Mouse", "Rect", "custom_constants" ]
-
-[node name="TextureRect" type="TextureRect" parent="WindowBasicContainer/VBoxContainer/MarginContainer/HBoxContainer/CloseButtonContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 70.0
-margin_top = 70.0
-margin_right = 200.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 130, 130 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 8 )
-expand = true
-stretch_mode = 4
-_sections_unfolded = [ "Mouse" ]
-
-[node name="TextureButton" type="TextureButton" parent="WindowBasicContainer/VBoxContainer/MarginContainer/HBoxContainer/CloseButtonContainer/TextureRect" index="0"]
-
-show_behind_parent = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 130.0
-margin_bottom = 130.0
-rect_min_size = Vector2( 130, 130 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 8 )
-texture_hover = ExtResource( 9 )
-texture_disabled = ExtResource( 8 )
-expand = true
-stretch_mode = 3
-_sections_unfolded = [ "Mouse", "Visibility" ]
-
-[node name="CursorControl" type="Control" parent="." index="3"]
+[node name="CursorControl" type="Control" parent="." index="4"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -411,7 +72,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 10 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="TextureRect" type="TextureRect" parent="CursorControl" index="0"]
 
@@ -427,14 +89,8 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 11 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 0
-
-[connection signal="pressed" from="WindowBasicContainer/VBoxContainer/MarginContainer/HBoxContainer/MinButtonContainer/TextureRect/TextureButton" to="WindowBasicContainer" method="OnMinButtonPressed"]
-
-[connection signal="pressed" from="WindowBasicContainer/VBoxContainer/MarginContainer/HBoxContainer/MaxButtonContainer/TextureRect/TextureButton" to="WindowBasicContainer" method="OnMaxButtonPressed"]
-
-[connection signal="pressed" from="WindowBasicContainer/VBoxContainer/MarginContainer/HBoxContainer/CloseButtonContainer/TextureRect/TextureButton" to="WindowBasicContainer" method="OnCloseButtonPressed"]
 
 
