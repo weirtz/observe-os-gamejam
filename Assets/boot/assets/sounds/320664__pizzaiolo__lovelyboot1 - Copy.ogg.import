@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/320664__pizzaiolo__lovelyboot1 - Copy.ogg-d16b64f4f9a0c56add40bec3077bef6a.oggstr"
+
+[deps]
+
+source_file="res://Assets/boot/assets/sounds/320664__pizzaiolo__lovelyboot1 - Copy.ogg"
+source_md5="e8faae653dcde0785f76318e813dd7d7"
+
+dest_files=[ "res://.import/320664__pizzaiolo__lovelyboot1 - Copy.ogg-d16b64f4f9a0c56add40bec3077bef6a.oggstr" ]
+dest_md5="3c6555d59af7a10e22521d41a21b05de"
+
+[params]
+
+loop=true
+loop_offset=0

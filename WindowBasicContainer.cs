@@ -40,7 +40,15 @@ public class WindowBasicContainer : MarginContainer
             isDragging = false;
         }
     }
+    public Vector2 GetRealRectSize()
+    {
+        return RectSize * RectScale;
+    }
 
+    public Vector2 GetRealMinRectSize()
+    {
+        return RectMinSize * RectScale;
+    }
     public void OnCloseButtonPressed()
     {
         QueueFree();

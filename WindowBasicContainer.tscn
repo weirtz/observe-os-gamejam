@@ -8,7 +8,9 @@
 [ext_resource path="res://Assets/gui/window/button-close.png" type="Texture" id=6]
 [ext_resource path="res://Assets/gui/window/button-hover-close.png" type="Texture" id=7]
 
-[node name="WindowBasicContainer" type="MarginContainer"]
+[node name="WindowBasicContainer" type="MarginContainer" groups=[
+"Window",
+]]
 
 anchor_left = 0.0
 anchor_top = 0.0
