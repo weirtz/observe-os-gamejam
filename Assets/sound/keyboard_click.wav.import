@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/keyboard_click.wav-fad8cfefe414326b38bb88a79056bf60.sample"
+
+[deps]
+
+source_file="res://Assets/sound/keyboard_click.wav"
+source_md5="d05f8d7573759bcfb4fa7d557ff697d2"
+
+dest_files=[ "res://.import/keyboard_click.wav-fad8cfefe414326b38bb88a79056bf60.sample" ]
+dest_md5="f7e0b8bf5f35c38cfa6d39474622978c"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

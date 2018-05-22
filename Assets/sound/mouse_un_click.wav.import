@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mouse_un_click.wav-ff8799f8ec05d411cfe4048a8f8d376d.sample"
+
+[deps]
+
+source_file="res://Assets/sound/mouse_un_click.wav"
+source_md5="01e87ff8e072f86aaba999755be41af9"
+
+dest_files=[ "res://.import/mouse_un_click.wav-ff8799f8ec05d411cfe4048a8f8d376d.sample" ]
+dest_md5="0d4c41e4d10e581372a6d91faf8d1a7c"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
