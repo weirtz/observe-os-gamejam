@@ -1,0 +1,17 @@
+[remap]
+
+importer="Theora"
+type="VideoStreamTheora"
+path="res://.import/computer-screen-boot-glitch.ogv-26906e2f3a5ea6966a984e6f8b8d32c0.ogvstr"
+
+[deps]
+
+source_file="res://Assets/boot/computer-screen-boot-glitch.ogv"
+source_md5="045e6f4a3cf65d04ddfe5f6471bbd5fb"
+
+dest_files=[ "res://.import/computer-screen-boot-glitch.ogv-26906e2f3a5ea6966a984e6f8b8d32c0.ogvstr" ]
+dest_md5="3309f8c1167979d1b2d1bb088036a291"
+
+[params]
+
+loop=true

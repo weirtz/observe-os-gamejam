@@ -6,15 +6,15 @@ public class WindowOpener : Node
     // Member variables here, example:
     // private int a = 2;
     // private string b = "textvar";
-    private Control desktop;
+    private Node desktop;
 
 
     public override void _Ready()
     {
         // Called every time the node is added to the scene.
         // Initialization here
-        desktop = GetViewport().GetNode("DesktopControl") as Control;
-        desktop.GetNode("Timer").Connect("timeout", this, "Spawn");
+        desktop = GetViewport().GetNode("DesktopControl") as Node;
+        desktop.GetNode("WindowSpawnTimer").Connect("timeout", this, "Spawn");
         Spawn();
     }
 
@@ -37,7 +37,6 @@ public class WindowOpener : Node
             x = rand.Next(1500, 5000),
             y = rand.Next(1500, 3500)
         };
-        
 
         var pos = new Vector2
         {

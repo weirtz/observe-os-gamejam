@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/the_finest_of_beeps.wav-3bc1b1521547f0d18d5fb97d2ceb0b2e.sample"
+
+[deps]
+
+source_file="res://Assets/sound/the_finest_of_beeps.wav"
+source_md5="c56caf5717d8548764faaaf8f53722e3"
+
+dest_files=[ "res://.import/the_finest_of_beeps.wav-3bc1b1521547f0d18d5fb97d2ceb0b2e.sample" ]
+dest_md5="734c47e1a5dc46d0c63161501f0166eb"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

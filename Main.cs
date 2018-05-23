@@ -1,78 +1,38 @@
 using Godot;
 using System;
 
+
 public class Main : Spatial
 {
     // Member variables here, example:
     // private int a = 2;
     // private string b = "textvar";
-    public CursorControl cursor;
+    public Vector2 cursorPos;
     public Vector2 pos;
     private Viewport viewport;
     public bool escaped;
     private AudioStreamPlayer3D audioClick;
     private AudioStreamPlayer3D audioUnclick;
     private AudioStreamPlayer3D audioKeyboardClick;
-    private Control desktop;
+    private Node desktop;
+    private SpotLight spotLight;
+
     public override void _Ready()
     {
         OS.SetWindowMaximized(true);
         Input.SetMouseMode(Input.MouseMode.Captured);
         viewport = GetNode("Viewport") as Viewport;
-        cursor = GetNode("Viewport/DesktopControl/CursorControl") as CursorControl;
+        spotLight = GetNode("SpotLight") as SpotLight;
         GD.Print("Main script on");
         audioClick = GetNode("/root/Main/MonitorSpatial/Click") as AudioStreamPlayer3D;
         audioUnclick = GetNode("/root/Main/MonitorSpatial/Unclick") as AudioStreamPlayer3D;
         audioKeyboardClick = GetNode("/root/Main/MonitorSpatial/KeyboardClick") as AudioStreamPlayer3D;
-        desktop = GetNode("Viewport/DesktopControl") as Control;
     }
 
     public override void _Process(float delta)
     {
-        var windowLayer = desktop.GetNode("WindowLayer") as Control;
-        if (Input.IsActionJustPressed("ui_select"))
-            audioClick.Play(0);
-        if (Input.IsActionJustReleased("ui_select"))
-            audioUnclick.Play(0);
         if (Input.IsActionJustPressed("ui_cancel"))
             Toggle_escape();
-        if (Input.IsActionJustPressed("ui_new"))
-            desktop.AddChildBelowNode(windowLayer, ((PackedScene)ResourceLoader.Load("res://WindowBasicContainer.tscn")).Instance());
-        if (Input.IsActionJustPressed("ui_select"))
-        {
-            GD.Print("viewport fake click ", pos);
-            viewport.Input(FakeClick(pos, true));
-        }
-        else
-        {
-            viewport.Input(FakeClick(pos, false));
-        }
-    }
-
-    public override void _Input(InputEvent @event)
-    {
-
-
-        if (@event is InputEventMouse inputEventMouse)
-        {
-            pos.x = -1 + (int)cursor.pos.x;
-            pos.y = -1 + (int)cursor.pos.y;
-            inputEventMouse.Position = pos;
-            inputEventMouse.GlobalPosition = pos;
-
-            viewport.Input(@event);
-        }
-        if (@event is InputEventMouseMotion eventMouseMotion && !escaped)
-        {
-            cursor.pos += eventMouseMotion.Relative;
-        }
-        if (@event is InputEventKey eventKey)
-        {
-            if (eventKey.IsPressed())
-                audioKeyboardClick.Play(0);
-        }
-
-
     }
 
     public void Toggle_escape()
@@ -94,27 +54,41 @@ public class Main : Spatial
         }
 
     }
-
-    public InputEventMouseButton FakeClick(Vector2 position, bool isPressed)
+    public override void _Input(InputEvent @event)
     {
-        var @event = new InputEventMouseButton()
+        if (@event is InputEventMouseMotion eventMouseMotion && !escaped)
         {
-            ButtonIndex = (int)ButtonList.Left,
-            Pressed = isPressed,
-            Position = position,
-            GlobalPosition = position
-        };
-        return @event;
+            cursorPos += eventMouseMotion.Relative;
+            pos.x = -1 + (int)cursorPos.x;
+            pos.y = -1 + (int)cursorPos.y;
+            eventMouseMotion.Position = pos;
+            eventMouseMotion.GlobalPosition = pos;
+            viewport.Input(@event);
+        }
+        if (@event is InputEventMouseButton eventMouseButton)
+        {
+            eventMouseButton.Position = pos;
+            eventMouseButton.GlobalPosition = pos;
+            viewport.Input(@event);
+        }
+        if (@event is InputEventKey eventKey)
+        {
+            if (eventKey.IsPressed())
+                audioKeyboardClick.Play(0);
+        }
     }
-
-    public void MoveCursor(InputEventMouse inputEventMouse)
+    public void OnBootTimerTimeout()
     {
-        pos.x = -1 + (int)cursor.pos.x;
-        pos.y = -1 + (int)cursor.pos.y;
-        inputEventMouse.Position = pos;
-        inputEventMouse.GlobalPosition = pos;
-        var @event = inputEventMouse;
-        viewport.Input(@event);
+        //smoothly applies light to the scene
+        var tween = (Tween)spotLight.GetNode("LightTween");
+        tween.SetActive(true);
+        tween.InterpolateProperty(spotLight, "light_energy", 0, 16, 1.5f, Tween.TransitionType.Linear, Tween.EaseType.In);
+        tween.Start();
+        //Instances a new desktop instance
+        var newDesktop = ((PackedScene)ResourceLoader.Load("res://DesktopControl.tscn")).Instance() as DesktopControl;
+        newDesktop.SetName("DesktopControl");
+        viewport.CallDeferred("add_child", newDesktop, false);
+        //removes the boot video from sight
+        ((VideoPlayer)viewport.GetNode("VideoPlayer")).SetVisible(false);
     }
-
 }

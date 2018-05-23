@@ -13,22 +13,21 @@ public class CPUTextureProgress : TextureProgress
     {
         // Called every time the node is added to the scene.
         // Initialization here
-        tween = this.GetNode("Tween") as Tween;
-        UpdatePercentageAsync();
-        
+        tween = this.GetNode("Tween") as Tween;      
     }
 
     public override void _Process(float delta)
     {
-        GD.Print(Value);
         UpdatePercentageAsync();
     }
 
     public async void UpdatePercentageAsync()
     {
-        await ToSignal((Timer)GetViewport().GetNode("DesktopControl/Timer"), "timeout");
+        await ToSignal((Timer)GetViewport().GetNode("DesktopControl/WindowSpawnTimer"), "timeout");
         tween.SetActive(true);
-        tween.InterpolateMethod(this, "set_value", Value, GetTree().GetNodesInGroup("Window").Length * 2, 1.5f, Tween.TransitionType.Linear, Tween.EaseType.In, 0);
+        tween.InterpolateMethod(this, "set_value", Value, Mathf.Pow(GetTree().GetNodesInGroup("Window").Length * 2,1.5f), 1.5f, Tween.TransitionType.Linear, Tween.EaseType.In, 0);
         tween.Start();
+        var timer = GetViewport().GetNode("DesktopControl/WindowSpawnTimer") as WindowSpawnTimer;
+        timer.DecrementWaitTime(.00005f);
     }
 }
