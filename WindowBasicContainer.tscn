@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://WindowBasicContainer.cs" type="Script" id=1]
 [ext_resource path="res://Assets/gui/window/window.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/gui/window/button-max.png" type="Texture" id=5]
 [ext_resource path="res://Assets/gui/window/button-close.png" type="Texture" id=6]
 [ext_resource path="res://Assets/gui/window/button-hover-close.png" type="Texture" id=7]
+[ext_resource path="res://Assets/gui/window/folders.png" type="Texture" id=8]
 
 [node name="WindowBasicContainer" type="MarginContainer" groups=[
 "Window",
@@ -18,8 +19,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 500.0
 margin_top = 100.0
-margin_right = 2975.0
-margin_bottom = 1704.0
+margin_right = 4020.0
+margin_bottom = 2340.0
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -28,7 +29,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Mouse", "Theme", "Visibility" ]
+_sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." index="0"]
 
@@ -37,8 +38,8 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
-margin_right = 2475.0
-margin_bottom = 1604.0
+margin_right = 3520.0
+margin_bottom = 2240.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -59,8 +60,8 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
-margin_right = 2475.0
-margin_bottom = 1604.0
+margin_right = 3520.0
+margin_bottom = 2240.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -73,11 +74,12 @@ _sections_unfolded = [ "Margin", "Mouse", "custom_constants" ]
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 2467.0
+margin_right = 3512.0
 margin_bottom = 270.0
 rect_min_size = Vector2( 0, 250 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -99,7 +101,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 2467.0
+margin_right = 3512.0
 margin_bottom = 270.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -119,7 +121,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1647.0
+margin_right = 2692.0
 margin_bottom = 270.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -135,7 +137,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 2467.0
+margin_right = 3512.0
 margin_bottom = 270.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -152,8 +154,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1649.0
-margin_right = 1919.0
+margin_left = 2694.0
+margin_right = 2964.0
 margin_bottom = 270.0
 rect_min_size = Vector2( 200, 200 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -225,8 +227,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1923.0
-margin_right = 2193.0
+margin_left = 2968.0
+margin_right = 3238.0
 margin_bottom = 270.0
 rect_min_size = Vector2( 200, 200 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -298,8 +300,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 2197.0
-margin_right = 2467.0
+margin_left = 3242.0
+margin_right = 3512.0
 margin_bottom = 270.0
 rect_min_size = Vector2( 200, 200 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -364,6 +366,101 @@ texture_disabled = ExtResource( 6 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Mouse", "Visibility" ]
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 270.0
+margin_right = 3512.0
+margin_bottom = 1417.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_right = 100
+custom_constants/margin_top = 250
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 200
+_sections_unfolded = [ "Rect" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 100.0
+margin_top = 250.0
+margin_right = 3412.0
+margin_bottom = 947.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 200
+alignment = 1
+_sections_unfolded = [ "Rect", "custom_constants" ]
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer2/HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 428.0
+margin_right = 1113.0
+margin_bottom = 697.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/MarginContainer2/HBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1313.0
+margin_right = 1998.0
+margin_bottom = 697.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 8 )
+stretch_mode = 0
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/MarginContainer2/HBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2198.0
+margin_right = 2883.0
+margin_bottom = 697.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 8 )
+stretch_mode = 4
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/MaxButtonContainer/TextureRect/TextureButton" to="." method="OnMaxButtonPressed"]
 

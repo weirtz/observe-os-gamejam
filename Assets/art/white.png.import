@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/folders.png-1ab7430b659ecac895ea0704fdc57de6.stex"
+path="res://.import/white.png-d80ae7ab29710bbd25994e9bf70fe90c.stex"
 
 [deps]
 
-source_file="res://Assets/gui/window/folders.png"
-source_md5="4f7d474af581948d42e140eae4cf18c5"
+source_file="res://Assets/art/white.png"
+source_md5="b68844373120b3795a9b80a7922d0c76"
 
-dest_files=[ "res://.import/folders.png-1ab7430b659ecac895ea0704fdc57de6.stex" ]
-dest_md5="2c74742da5b7b904a01be030b39d022f"
+dest_files=[ "res://.import/white.png-d80ae7ab29710bbd25994e9bf70fe90c.stex" ]
+dest_md5="f17f3e225bc88873851ebd43ba696987"
 
 [params]
 

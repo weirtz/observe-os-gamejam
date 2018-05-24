@@ -49,6 +49,8 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BootTimer.cs" />
+    <Compile Include="BootVideoPlayer.cs" />
     <Compile Include="CPUTextureProgress.cs" />
     <Compile Include="CursorControl.cs" />
     <Compile Include="DesktopControl.cs" />

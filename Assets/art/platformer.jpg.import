@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/folders.png-1ab7430b659ecac895ea0704fdc57de6.stex"
+path="res://.import/platformer.jpg-a88842c9dc07fd1ad713a1d44c5096c5.stex"
 
 [deps]
 
-source_file="res://Assets/gui/window/folders.png"
-source_md5="4f7d474af581948d42e140eae4cf18c5"
+source_file="res://Assets/art/platformer.jpg"
+source_md5="8ff2fb3bb2fe75e79d0812c4cc7f4380"
 
-dest_files=[ "res://.import/folders.png-1ab7430b659ecac895ea0704fdc57de6.stex" ]
-dest_md5="2c74742da5b7b904a01be030b39d022f"
+dest_files=[ "res://.import/platformer.jpg-a88842c9dc07fd1ad713a1d44c5096c5.stex" ]
+dest_md5="ed068c0fed8f318e84ce5371746bf6b3"
 
 [params]
 

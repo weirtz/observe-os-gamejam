@@ -19,6 +19,13 @@ public class CPUTextureProgress : TextureProgress
     public override void _Process(float delta)
     {
         UpdatePercentageAsync();
+        if (Value >= 100)
+        {
+            ((TextureRect)GetViewport().GetNode("DesktopControl/GlitchEffect")).SetVisible(true);
+        } else
+        {
+            ((TextureRect)GetViewport().GetNode("DesktopControl/GlitchEffect")).SetVisible(false);
+        }
     }
 
     public async void UpdatePercentageAsync()
@@ -29,5 +36,6 @@ public class CPUTextureProgress : TextureProgress
         tween.Start();
         var timer = GetViewport().GetNode("DesktopControl/WindowSpawnTimer") as WindowSpawnTimer;
         timer.DecrementWaitTime(.00005f);
+
     }
 }
