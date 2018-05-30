@@ -15,15 +15,7 @@ public class WindowOpener : Node
         // Initialization here
         desktop = GetViewport().GetNode("DesktopControl") as Node;
         desktop.GetNode("WindowSpawnTimer").Connect("timeout", this, "Spawn");
-        Spawn();
     }
-
-    //    public override void _Process(float delta)
-    //    {
-    //        // Called every frame. Delta is time since last frame.
-    //        // Update game logic here.
-    //        
-    //    }
 
     public void Spawn()
     {

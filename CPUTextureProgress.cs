@@ -32,10 +32,10 @@ public class CPUTextureProgress : TextureProgress
     {
         await ToSignal((Timer)GetViewport().GetNode("DesktopControl/WindowSpawnTimer"), "timeout");
         tween.SetActive(true);
-        tween.InterpolateMethod(this, "set_value", Value, Mathf.Pow(GetTree().GetNodesInGroup("Window").Length * 2,1.5f), 1.5f, Tween.TransitionType.Linear, Tween.EaseType.In, 0);
+        tween.InterpolateMethod(this, "set_value", Value, Mathf.Pow(GetTree().GetNodesInGroup("Window").Length,1.5f), 1.5f, Tween.TransitionType.Linear, Tween.EaseType.In, 0);
         tween.Start();
         var timer = GetViewport().GetNode("DesktopControl/WindowSpawnTimer") as WindowSpawnTimer;
-        timer.DecrementWaitTime(.00005f);
+        //timer.DecrementWaitTime(.00005f);
 
     }
 }

@@ -11,7 +11,6 @@ public class WindowSpawnTimer : Timer
     {
         // Called every time the node is added to the scene.
         // Initialization here
-        
     }
 
 //    public override void _Process(float delta)
@@ -23,5 +22,10 @@ public class WindowSpawnTimer : Timer
     public void DecrementWaitTime(float value)
     {
         WaitTime -= value;
+    }
+
+    public void OnRunButton()
+    {
+        Start();
     }
 }

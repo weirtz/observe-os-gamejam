@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class BootVideoPlayer : VideoPlayer
+public class RunButton : TextureButton
 {
     // Member variables here, example:
     // private int a = 2;
@@ -11,7 +11,8 @@ public class BootVideoPlayer : VideoPlayer
     {
         // Called every time the node is added to the scene.
         // Initialization here
-        
+        var target = GetNode("/root/Main/Viewport/DesktopControl/WindowSpawnTimer") as WindowSpawnTimer;
+        Connect("button_up", target, "OnRunButton");
     }
 
 //    public override void _Process(float delta)
@@ -20,11 +21,4 @@ public class BootVideoPlayer : VideoPlayer
 //        // Update game logic here.
 //        
 //    }
-    public void OnIntroTimer() {
-        var timer = GetNode("BootTimer") as Timer;
-        timer.Start();
-        Play();
-        var videoplayer = GetViewport().GetParent().GetNode("CanvasLayer/IntroVideoPlayer") as VideoPlayer;
-        videoplayer.Hide();
-    }
 }

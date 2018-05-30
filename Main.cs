@@ -19,7 +19,7 @@ public class Main : Spatial
 
     public override void _Ready()
     {
-        OS.SetWindowMaximized(true);
+        //OS.SetWindowMaximized(true);
         Input.SetMouseMode(Input.MouseMode.Captured);
         viewport = GetNode("Viewport") as Viewport;
         spotLight = GetNode("SpotLight") as SpotLight;
@@ -33,6 +33,8 @@ public class Main : Spatial
     {
         if (Input.IsActionJustPressed("ui_cancel"))
             Toggle_escape();
+        if (Input.IsActionJustPressed("skip"))
+            OnBootTimerTimeout();
     }
 
     public void Toggle_escape()
@@ -89,6 +91,11 @@ public class Main : Spatial
         newDesktop.SetName("DesktopControl");
         viewport.CallDeferred("add_child", newDesktop, false);
         //removes the boot video from sight
-        ((VideoPlayer)viewport.GetNode("VideoPlayer")).SetVisible(false);
+        ((VideoPlayer)viewport.GetNode("BootVideoPlayer")).SetVisible(false);
+        //disables boot timer
+        var desktop = GetNode("DesktopControl");
+        var timer = desktop.GetNode("WindowSpawnTimer") as Timer;
+        timer.SetAutostart(false);
+        timer.Stop();
     }
 }

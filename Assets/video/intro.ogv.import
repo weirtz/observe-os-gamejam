@@ -7,7 +7,7 @@ path="res://.import/intro.ogv-ecf955a1a76e9db3849dcd612a79af15.ogvstr"
 [deps]
 
 source_file="res://Assets/video/intro.ogv"
-source_md5="a934c7a9bf4ff4eb471cdce69a7b9c51"
+source_md5="b17c190188240b7e2930a5c0aead8887"
 
 dest_files=[ "res://.import/intro.ogv-ecf955a1a76e9db3849dcd612a79af15.ogvstr" ]
 dest_md5="3dc9341d9f2fa9ad2c4a5ae9434253ca"

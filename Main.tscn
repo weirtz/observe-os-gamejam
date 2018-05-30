@@ -339,7 +339,7 @@ adjustment_brightness = 1.0
 adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 
-[node name="Main" type="Spatial" index="0"]
+[node name="Main" type="Spatial"]
 
 script = ExtResource( 1 )
 
@@ -362,7 +362,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Viewport" type="Viewport" parent="." index="1"]
 
-editor/display_folded = true
 arvr = false
 size = Vector2( 1920, 1080 )
 own_world = false
@@ -423,6 +422,7 @@ script = ExtResource( 4 )
 
 [node name="Area" type="Area" parent="." index="2"]
 
+editor/display_folded = true
 transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 input_ray_pickable = false
 input_capture_on_drag = false
@@ -470,6 +470,8 @@ disabled = false
 _sections_unfolded = [ "Transform" ]
 
 [node name="MonitorSpatial" type="Spatial" parent="." index="3"]
+
+editor/display_folded = true
 
 [node name="MonitorMesh" type="MeshInstance" parent="MonitorSpatial" index="0"]
 
@@ -547,7 +549,7 @@ doppler_tracking = 0
 
 [node name="DeskMesh" type="MeshInstance" parent="MonitorSpatial" index="4"]
 
-transform = Transform( 0.106066, 0, 0.106066, 0, 0.15, 0, -0.106066, 0, 0.106066, 0.184641, -6.34103, -0.223869 )
+transform = Transform( 0.106066, 0, 0.106066, 0, 0.15, 0, -0.106066, 0, 0.106066, 0.193373, -6.34949, -0.219763 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -595,6 +597,7 @@ environment = SubResource( 10 )
 
 [node name="SpotLight" type="SpotLight" parent="." index="6"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.92996, 0 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
@@ -634,15 +637,16 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="VideoPlayer" type="VideoPlayer" parent="CanvasLayer" index="0"]
+[node name="IntroVideoPlayer" type="VideoPlayer" parent="CanvasLayer" index="0"]
 
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1920.0
-margin_bottom = 1080.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -657,40 +661,17 @@ paused = false
 expand = true
 buffering_msec = 500
 bus = "Master"
-_sections_unfolded = [ "Anchor", "Margin", "Size Flags" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags" ]
 
-[node name="IntroTimer" type="Timer" parent="CanvasLayer/VideoPlayer" index="0"]
+[node name="IntroTimer" type="Timer" parent="CanvasLayer/IntroVideoPlayer" index="0"]
 
 process_mode = 1
 wait_time = 4.0
 one_shot = true
 autostart = true
 
-[node name="Label" type="Label" parent="CanvasLayer" index="1"]
-
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -1024.0
-margin_top = -600.0
-margin_right = -895.0
-margin_bottom = -523.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "YSA"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Anchor" ]
-
 [connection signal="timeout" from="Viewport/BootVideoPlayer/BootTimer" to="." method="OnBootTimerTimeout"]
 
-[connection signal="timeout" from="CanvasLayer/VideoPlayer/IntroTimer" to="Viewport/BootVideoPlayer" method="OnIntroTimer"]
+[connection signal="timeout" from="CanvasLayer/IntroVideoPlayer/IntroTimer" to="Viewport/BootVideoPlayer" method="OnIntroTimer"]
 
 
