@@ -21,10 +21,17 @@ public class CPUTextureProgress : TextureProgress
         UpdatePercentageAsync();
         if (Value >= 100)
         {
-            ((TextureRect)GetViewport().GetNode("DesktopControl/GlitchEffect")).SetVisible(true);
+            ((TextureRect)GetViewport().GetNode("DesktopControl/GlitchEffect")).Show();
+            
+            var bluescreenTimer = (Timer)GetViewport().GetNode("DesktopControl/BlueScreenDelayTimer");
+            if (bluescreenTimer.IsStopped())
+            {
+                bluescreenTimer.Start();
+            } 
+            _on_BlueScreenDelayTimer_timeout();
         } else
         {
-            ((TextureRect)GetViewport().GetNode("DesktopControl/GlitchEffect")).SetVisible(false);
+            ((TextureRect)GetViewport().GetNode("DesktopControl/GlitchEffect")).Hide();
         }
     }
 
@@ -37,5 +44,15 @@ public class CPUTextureProgress : TextureProgress
         var timer = GetViewport().GetNode("DesktopControl/WindowSpawnTimer") as WindowSpawnTimer;
         //timer.DecrementWaitTime(.00005f);
 
+    }
+
+    public async void _on_BlueScreenDelayTimer_timeout()
+    {
+        await ToSignal((Timer)GetViewport().GetNode("DesktopControl/BlueScreenDelayTimer"), "timeout");
+        GD.Print("on_BlueScreenDelayTimer_timeout");
+        var bluescreen = (Sprite)GetViewport().GetNode("DesktopControl/bluescreen");
+        bluescreen.Show();
+        var beep = (AudioStreamPlayer2D)GetViewport().GetNode("DesktopControl/CrashBeepPlayer");
+        beep.Play(0);
     }
 }

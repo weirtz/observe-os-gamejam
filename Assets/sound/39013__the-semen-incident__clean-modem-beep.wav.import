@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/39013__the-semen-incident__clean-modem-beep.wav-623684697f75f40ab84e076846874996.sample"
+
+[deps]
+
+source_file="res://Assets/sound/39013__the-semen-incident__clean-modem-beep.wav"
+source_md5="19adc134556b582cecdfe7055f9c5cad"
+
+dest_files=[ "res://.import/39013__the-semen-incident__clean-modem-beep.wav-623684697f75f40ab84e076846874996.sample" ]
+dest_md5="4cc0bdbbc109a849061a8ccdebe23fae"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

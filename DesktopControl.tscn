@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://DesktopControl.cs" type="Script" id=1]
 [ext_resource path="res://Assets/desktop/wallpaper.png" type="Texture" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://WindowSpawnTimer.cs" type="Script" id=14]
 [ext_resource path="res://Assets/art/grain.png" type="Texture" id=15]
 [ext_resource path="res://Assets/art/white.png" type="Texture" id=16]
+[ext_resource path="res://Assets/sound/39013__the-semen-incident__clean-modem-beep.wav" type="AudioStream" id=17]
+[ext_resource path="res://Assets/boot/bluescreen.png" type="Texture" id=18]
 
 [sub_resource type="Shader" id=1]
 
@@ -136,6 +138,7 @@ margin_bottom = 1913.0
 
 [node name="CPUContainer" type="MarginContainer" parent="." index="5"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -354,5 +357,30 @@ size_flags_vertical = 1
 texture = ExtResource( 16 )
 stretch_mode = 2
 _sections_unfolded = [ "Material", "Mouse", "Visibility" ]
+
+[node name="BlueScreenDelayTimer" type="Timer" parent="." index="10"]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = true
+autostart = false
+
+[node name="CrashBeepPlayer" type="AudioStreamPlayer2D" parent="." index="11"]
+
+position = Vector2( 960, 540 )
+stream = ExtResource( 17 )
+volume_db = 24.0
+autoplay = true
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="bluescreen" type="Sprite" parent="." index="12"]
+
+visible = false
+position = Vector2( 960, 540 )
+texture = ExtResource( 18 )
+_sections_unfolded = [ "Transform" ]
 
 
