@@ -7,10 +7,10 @@ path="res://.import/taskbar.png-2e6c4b33b7ceb96a9b991addb4088b35.stex"
 [deps]
 
 source_file="res://Assets/gui/desktop/taskbar.png"
-source_md5="9513036cef24bea96f58729c1f9a17fd"
+source_md5="ccc4d5a564292ffc84058686395ba42e"
 
 dest_files=[ "res://.import/taskbar.png-2e6c4b33b7ceb96a9b991addb4088b35.stex" ]
-dest_md5="88502173813d19e85632e2989752737a"
+dest_md5="f2219a61e34bfa0e83c3f9e430a38db2"
 
 [params]
 
