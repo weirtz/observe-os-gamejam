@@ -23,6 +23,7 @@ public class DesktopControl : Node
         cursor = GetNode("CursorControl") as CursorControl;
         escaped = ((Main)GetNode("/root/Main")).escaped;
         main = ((Main)GetNode("/root/Main"));
+        GD.Print("New Desktop");
     }
 
     public override void _Process(float delta)

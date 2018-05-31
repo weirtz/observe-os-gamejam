@@ -471,8 +471,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="MonitorSpatial" type="Spatial" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="MonitorMesh" type="MeshInstance" parent="MonitorSpatial" index="0"]
 
 transform = Transform( -0.57, 0, -8.60676e-08, 0, 0.57, 0, 8.60676e-08, 0, -0.57, 0, -1.39236, -0.0250583 )

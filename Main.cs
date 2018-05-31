@@ -34,7 +34,12 @@ public class Main : Spatial
         if (Input.IsActionJustPressed("ui_cancel"))
             Toggle_escape();
         if (Input.IsActionJustPressed("skip"))
+        {
+            var videoplayer = viewport.GetParent().GetNode("CanvasLayer/IntroVideoPlayer") as VideoPlayer;
+            videoplayer.Hide();
             OnBootTimerTimeout();
+        }
+
     }
 
     public void Toggle_escape()
@@ -81,21 +86,26 @@ public class Main : Spatial
     }
     public void OnBootTimerTimeout()
     {
-        //smoothly applies light to the scene
-        var tween = (Tween)spotLight.GetNode("LightTween");
-        tween.SetActive(true);
-        tween.InterpolateProperty(spotLight, "light_energy", 0, 16, 1.5f, Tween.TransitionType.Linear, Tween.EaseType.In);
-        tween.Start();
-        //Instances a new desktop instance
-        var newDesktop = ((PackedScene)ResourceLoader.Load("res://DesktopControl.tscn")).Instance() as DesktopControl;
-        newDesktop.SetName("DesktopControl");
-        viewport.CallDeferred("add_child", newDesktop, false);
-        //removes the boot video from sight
-        ((VideoPlayer)viewport.GetNode("BootVideoPlayer")).SetVisible(false);
-        //disables boot timer
-        var desktop = GetNode("DesktopControl");
-        var timer = desktop.GetNode("WindowSpawnTimer") as Timer;
-        timer.SetAutostart(false);
-        timer.Stop();
+        if (GetTree().GetNodesInGroup("desktop").Length == 0)
+        {
+            //smoothly applies light to the scene
+            var tween = (Tween)spotLight.GetNode("LightTween");
+            tween.SetActive(true);
+            tween.InterpolateProperty(spotLight, "light_energy", 0, 16, 1.5f, Tween.TransitionType.Linear, Tween.EaseType.In);
+            tween.Start();
+            //Instances a new desktop instance
+            var newDesktop = ((PackedScene)ResourceLoader.Load("res://DesktopControl.tscn")).Instance() as DesktopControl;
+            newDesktop.SetName("DesktopControl");
+            newDesktop.AddToGroup("desktop");
+            viewport.CallDeferred("add_child", newDesktop, false);
+            //removes the boot video from sight
+            ((VideoPlayer)viewport.GetNode("BootVideoPlayer")).SetVisible(false);
+            //disables boot timer
+
+            var timer = newDesktop.GetNode("WindowSpawnTimer") as Timer;
+            timer.SetAutostart(false);
+            timer.Stop();
+        }
+
     }
 }
