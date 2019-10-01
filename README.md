@@ -1,3 +1,8 @@
+# Observe OS
+
+Submission for One Game A Month Game Jam
+Theme: Death
+
 *** TODO
 
 Compile with Mono
